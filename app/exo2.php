@@ -1,3 +1,8 @@
+<?php
+require_once "./include/classTeacher.php"
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +41,15 @@
                 Créer 2 professeurs différents.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+                    $teacher1 = new Teacher("Azer", "Pascal", ["Francais", "Histoire"], "Jules Vernes");
+
+                    $teacher2 = new Teacher("Reza", "Brigitte", ["Math", "Physique"], "L'école là bas");
+
+                    var_dump($teacher1);
+                    var_dump($teacher2);
+
+                ?>
             </div>
         </section>
         
@@ -52,7 +65,13 @@
                 Afficher les écoles des 2 professeurs.
             </p>
             <div class="exercice-sandbox">
-                
+               <?php
+                $teacher1->setSchool("StarAc");
+                echo '<p>Lieu de travail : ' . $teacher1->getSchool() . '</p>';
+
+                $teacher2->setSchool("Quentin de la Tour");
+                echo '<p>Lieu de travail : ' . $teacher2->getSchool() . '</p>';
+               ?> 
             </div>
         </section>
         
