@@ -85,7 +85,15 @@ require_once "./include/classTeacher.php"
                 Tester l'ajout, la suppression et l'affichage sur chacun des profs.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+                    var_dump($teacher1->getSubject());
+                    $teacher1->addSubject("Géo");
+                    var_dump($teacher1->getSubject());
+
+                    $teacher1->suppSubject("Francais");
+                    var_dump($teacher1->getSubject());
+
+                ?>
             </div>
         </section>
 
@@ -100,7 +108,12 @@ require_once "./include/classTeacher.php"
                 Afficher la phrase de présentation des 2 profs.
             </p>
             <div class="exercice-sandbox">
-                
+               <?php 
+            //    $teacher1->__toString() . 
+                    echo 
+                    '<p>' . $teacher1->introduceMySelfOfTeacher() . '</ p>' . 
+                    '<p>' . $teacher2->introduceMySelfOfTeacher() . '</p>'
+               ?> 
             </div>
         </section>
 

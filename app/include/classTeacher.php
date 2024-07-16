@@ -16,7 +16,7 @@ class Teacher {
      * @param array $subject
      * @param string $school
      */
-    public function __construct (string $lastname, string $firstname, array $subject, string $school) 
+    public function __construct (string $lastname, string $firstname, array $subject = [], string $school = '') 
     {
         $this->lastname = $lastname;
         $this->firstname = $firstname;
@@ -92,6 +92,26 @@ class Teacher {
     }
 
     /**
+     * Add subject 
+     *
+     * @return string
+     */
+    public function addSubject(string $value): void
+    {
+        array_push($this->subject, $value);
+    }
+
+    /**
+     * Delete subject 
+     *
+     * @return string
+     */
+    public function suppSubject(string $value): void
+    {
+        unset($this->subject[array_search($value, $this->subject)]);
+    }
+
+    /**
      * set school name
      *
      * @param string $school
@@ -110,6 +130,16 @@ class Teacher {
     public function getSchool(): string
     {
         return $this->school;
+    }
+
+    public function __toString()
+    {
+        return implode(", ", $this->subject) ;
+    }
+
+    public function introduceMySelfOfTeacher() : string
+    {
+        return 'Bonjour, je m\'appelle ' . $this->firstname . ' ' . $this->lastname . ' et j\'enseigne à l\'école ' . $this->school . '  les matières suivantes : ' . $this . '.';
     }
 }
 ?>
